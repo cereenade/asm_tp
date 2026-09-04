@@ -1,6 +1,4 @@
 *.o
-asm00/asm00
-asm01/asm01
-asm02/asm02
-asm03/asm03
+asm*/asm*
+!asm*/asm*.s
 

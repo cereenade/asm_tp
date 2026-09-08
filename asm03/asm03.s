@@ -1,22 +1,15 @@
-global _start
-
-section .data
-    msg     db  "1337", 10
-    msglen equ $ - msg
-
-
 section .text
 	global _start
 section .data
-    right db "1337", 10
-    right_len equ $ - right
+    msg db "1337", 10
+    msg_len equ $ - msg
 
 section .text
     global _start
 
 _start:
     cmp qword [rsp], 2
-    jne fail
+    jl fail
 
     mov rsi, [rsp + 16]
 
@@ -34,8 +27,8 @@ fail:
     syscall
 
 equal:
-    mov rsi, right
-    mov rdx, right_len
+    mov rsi, msg
+    mov rdx, msg_len
     jmp print
 
 print:
